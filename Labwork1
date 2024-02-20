@@ -1,0 +1,65 @@
+/*   Program purpose: to calculate the area of either a circle or a rectangle based on user input
+
+     Programmer: AFIZUDIN FIRDAUS BIN ZAFFRI 
+     ID NO     : AM2311015166
+     DATE : 20/2/2024 
+*/
+//Preprocessive director
+#include <iostream>
+#include <cmath>
+using namespace std;
+//main function
+int main() {
+	//Declaration of variables
+	int choice;
+	double radius, length, width, area;
+	//Declaration of constant
+	const double PI = 3.142;
+	//Prompting the user for input 
+	cout << "Choose a shape to calculate its area: " << endl;
+	cout << "1. Circle" << endl;
+	cout << "2. Rectangle" << endl;
+	cout << "Enter your choice (1 or 2): ";
+	cin >> choice; //store the user input inside of the variable
+	
+	//if statement to ensure that the program adapt accordingly based on the input 
+	if (choice == 1) {
+		//prompt the user for the radius
+		cout << "Enter the radius of the circle: ";
+		cin >> radius; //store inside the variable
+		
+			//if statement to ensure that the program adapt accordingly based on the input 
+		if (radius < 0)
+		{
+			cout << "Invalid Input. Radius must not be negative. " << endl;
+		}
+		else
+		{
+		area = PI * pow(radius, 2); //calculate the area of the circle
+		cout << "Area of the circle is: " << area << endl; //print out the result
+	    }
+	}
+	else if (choice == 2) {
+		cout << "Enter the length of the rectangle: "; //prompt the user for the value of the length 
+		cin >> length; //store the value in the variable
+		cout << "Enter the width of the rectangle: "; //prompt the user for the value of the width
+		cin >> width; //store the value in the variable
+		
+			//if statement to ensure that the program adapt accordingly based on the input 
+		if ((length < 0) || (width < 0))
+		{
+		cout << "Invalid Input. Length and width cannot be negative." << endl;
+	    }
+	    else 
+	    {
+		area = length * width; //calculate the area of the rectangle
+		cout << "Area of the rectangle is: " << area << endl; //print out the result
+	    }
+	}
+	else 
+	{
+	    cout << "Invalid choice. Please enter 1 or 2." << endl;
+    }
+    //end of if
+	    return 0; //return statement
+} //end of main
