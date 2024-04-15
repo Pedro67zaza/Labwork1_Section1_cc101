@@ -1,0 +1,61 @@
+/* 		
+		PROGRAMMER: AFIZUDIN FIRDAUS BIN ZAFFRI
+		ID: AM2311015166
+		DATE: 15/4/2024
+		PROGRAM PURPOSE: to convert temperature between Celsius and Fahrenheit or vice versa.
+*/
+//preprocessor directive 
+#include <iostream>
+#include <cctype>
+#include <iomanip>
+using namespace std;
+//function prototypes
+double celciusToFahrenheit(double celcius);
+double fahrenheitToCelcius(double fahrenheit);
+//main function 
+int main()
+{	//declaration of variables
+	double temperature, convertedTemp;
+	char scale;
+	
+	cout << "Enter temperature: ";//prompt the user to enter the temperature 
+	cin >> temperature;
+	
+	if(!cin)//conditional so the appropriate output can be produced 
+		cout << "Invalid Input!" << endl;
+	else
+	{
+		cout << "Enter scale (C for celcius, F for Fahrenheit): ";//prompt the user for the scale 
+		cin >> scale;
+		
+		scale = toupper(scale);//make sure the input is uppercase 
+	
+		if (scale =='C')//conditional if celcius is selected 
+		{
+			convertedTemp = celciusToFahrenheit(temperature);//function call
+			cout << "Converted temperature: " << convertedTemp << " F" << endl;//print out the output 
+		}
+		
+		else if (scale =='F')//conditional if fahrenheit is selected 
+		{
+			convertedTemp = fahrenheitToCelcius(temperature);//function call
+			cout << "Converted temperature: " << fixed << setprecision(2) << convertedTemp << " C" << endl;//print out the output 
+		}
+		else
+			cout << "Invalid scale! Scale must either be Celcius or Fahrenheit." << endl;//print if user's input is invalid 
+	}
+	
+	return 0; //return statement
+}
+
+//function to convert Celcius to Fahrenheit
+double celciusToFahrenheit(double celcius)
+{
+	return (celcius * 9/5) + 32;
+}
+
+//function to convert fahrenheit to celcius
+double fahrenheitToCelcius(double fahrenheit)
+{
+	return (fahrenheit - 32) * 5/9;
+}
